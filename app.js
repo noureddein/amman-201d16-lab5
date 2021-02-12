@@ -60,7 +60,7 @@ function sumAndMultiply(a, b, c) {
         productResults,
         a + ' and ' + b + ' and ' + c + ' sum ' + 'to ' + sumResults + '.',
         'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + productResults + '.'
-    ]
+    ];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -83,11 +83,18 @@ let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) {
     //eslint-disable-line
+    let arrayTotalSum = 0;
+    let emptyArray = [];
+    for (let i = 0; i < testArray.length; i++) {
+        arrayTotalSum = sum(testArray[i], arrayTotalSum)[0];
+        emptyArray.push(testArray[i]);
+    }
+    return [arrayTotalSum, emptyArray + ' was passed in as an array of numbers, and ' + arrayTotalSum + ' is their sum.'];
 }
-
+console.log(sumArray(testArray));
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
