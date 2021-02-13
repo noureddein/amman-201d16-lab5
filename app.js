@@ -89,7 +89,7 @@ function sumArray(sumArr) {
     }
     return [arrayTotalSum, testArray + ' was passed in as an array of numbers, and ' + arrayTotalSum + ' is their sum.'];
 }
-console.log(sumArray(testArray));
+// console.log(sumArray(testArray));
 // Here is the test for sumArray(); uncomment it to run it
 
 testSumArray(testArray);
@@ -117,7 +117,7 @@ function multiplyArray(multArr) {
         'The numbers ' + testArray + ' have a product of ' + arrayTotalProduct + '.'
     ];
 }
-console.log(multiplyArray(testArray));
+// console.log(multiplyArray(testArray));
 
 // Here is the test for multiplyArray(); uncomment it to run it
 testMultiplyArray(testArray);
@@ -141,13 +141,35 @@ This function should be dynamic, accepting an array of any length.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyAnyArray() function and see if the test passes.*/
 
 // Write your code here
-let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
-function multiplyAnyArray(dynamicArray) {
-    //eslint-disable-line
+let testDynamicArray = []; //eslint-disable-line
+let arrResults = [];
+
+function anyArray() {
+    let userInput = prompt('Enter the length of the Array?');
+    for (let i = 0; i < userInput; i++) {
+        let userArrayItems = prompt('Enter array value for index No. : ' + i);
+        testDynamicArray.push(userArrayItems);
+    }
+    document.getElementById('userArray').innerHTML = ('[ ' + testDynamicArray + ' ]');
+    return testDynamicArray;
 }
+// anyArray();
+// console.log(testDynamicArray);
 
-// Here is the test for multiplyArray(); uncomment it to run it
+
+function multiplyAnyArray(testDynamicArray) {
+    //eslint-disable-line
+    let productResultsForAnyArray = 1;
+    for (let i = 0; i < testDynamicArray.length; i++) {
+        productResultsForAnyArray = multiply(testDynamicArray[i], productResultsForAnyArray)[0];
+    }
+    arrResults = [productResultsForAnyArray, 'The numbers ' + testDynamicArray + ' have a product of ' + productResultsForAnyArray + '.'];
+    document.getElementById('result').innerHTML = arrResults;
+    return [productResultsForAnyArray, 'The numbers ' + testDynamicArray + ' have a product of ' + productResultsForAnyArray + '.'];;
+}
 // testMultiplyAnyArray(testDynamicArray);
+console.log(multiplyAnyArray(testDynamicArray));
+// Here is the test for multiplyArray(); uncomment it to run it
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
